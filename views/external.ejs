@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <title>Document</title>
+
+    <link rel = "stylesheet" type="text/css" href ="/home.css">
+    <link rel = "stylesheet" type="text/css" href ="/web_project.css">
+
+</head>
+<body>
+    <header>
+        <h2>Welcome!!!</h2>
+    </header>
+    <div class = "home-nav">
+        <div class = "pro-img"></div>
+        <h3><%= user.name%></h3>
+    </div>
+
+    <label>Personal Details: </label>
+   
+    <p>Name: <%= user.name %></p>
+    <p>email: <%= user.email %></p>
+    <% d = user.dob.split(" ") %>
+    <% dob = d[1]+" " + d[2]+ " "+d[3] %>
+    <p>DOB: <%= dob %></p>
+
+    <div class= "section">
+        <% if (projects.length > 0) {%>
+            <div class = "project-group">
+                <% projects.forEach(element => { %>
+                    <div class = "ele">
+                        <p>Title: <%= element.title %></p>
+                        <p>Project Link: <a href = <%= element.address %>><%= element.address %></a> </p>
+                        <p>Team: <%= element.team %></p>
+                        <p>Description: <%= element.description %></p>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+    
+    <br><br><br>
+
+    <div class= "section">
+        <% if (info.length > 0) {%>
+            <div class = "project-group">
+                <% info.forEach(element => { %>
+                    <div class = "ele">
+                        <p>Intitute Name: <%= element.instituteName %></p>
+                        <p>University: <%= element.university %> </p>
+                        <p>Qualifying Degree: <%= element.degName %></p>
+                        <p>CPI/Percentage: <%= element.grade %></p>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+    <br><br><br>
+    <div class="section">
+        <% if (exp.length > 0) {%>
+            <div class = "project-group">
+                <% exp.forEach(element => { %>
+                    <div class = "ele">
+                        <p>Organisation: <%= element.organisation %></p>
+                        <p>Role: <%= element.role %> </p>
+                        <p>Span: <%= element.span %> Years</p>
+                        <p>Description: <%= element.description %></p>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+</body>
+
+</html>

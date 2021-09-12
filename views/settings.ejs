@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <title>Settings</title>
+
+    <link rel = "stylesheet" type="text/css" href ="/home.css">
+    <script src = 'web_settings.js' async></script>
+</head>
+<body>
+    <header>
+        <a href = '/projects' >Welcome!</a>
+    </header>
+
+    <div class = "home-nav">
+        <div class = "pro-img"></div>
+        <h3><%= user.name%></h3>
+
+        <div class ="nav-option">
+            <a href="/logout">Logout</a>
+            <a href = "/account">Account</a>
+            <a href = "/projects">Projects</a>
+        </div>
+    </div>
+
+    <button id="deactivate">Deactivate</button>
+    <button id= "delete">Delete Account</button>
+
+</body>
+</html>

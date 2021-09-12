@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel = "stylesheet" type="text/css" href ="/home.css">
+    <link rel = "stylesheet" type="text/css" href ="/web_project.css">
+    <script src = "web_project.js" async></script>
+</head>
+<body>
+    <header>
+        <a href = '/login' >Welcome!</a>
+        <a href = '/settings'>Settings</a>
+    </header>
+
+    <form  class="searchbox" action= '/searchuser' method="GET">
+        <input type= "text" id="search" name='name' placeholder="Enter Name to search" required>
+        <input type="submit" id="searchsubmit" value="Search">
+    </form>
+    
+    <div class = "home-nav">
+        <div class = "pro-img"></div>
+        <h3><%= user.name%></h3>
+
+        <div class ="nav-option">
+            <a href="/logout">Logout</a>
+            <a href = "/account">Account</a>
+            <a href = "/projects">Projects</a>
+        </div>
+    </div>
+
+    <div class = "add-btn">
+        <input type="button" name = "add-project" value = "Add Project">
+    </div>
+
+    <div class="add-project">
+        <h2 class = 'close-btn' >&times;</h2>
+        <form class = "project-form update-form">
+            <label for="title">Title: </label>
+            <input type="text" name = "title" required>
+            <label for="description">Description: </label>
+            <textarea name = "description" rows="10" cols="10" placeholder="Minimum 100 words" required></textarea>
+            <label for="team">Team: </label>
+            <input type="text" name = "team" placeholder="Individual or Group" required>
+            <label for="link">Project Link:</label>
+            <input type="text" name = "address" placeholder = "repository or product link"required>
+            <input type="submit" name = "button" class ="save-btn" value="Save">
+        </form>
+    </div>
+    <% col = ":"%>
+    <% if (projects.length > 0) {%>
+        <div class = "project-group">
+            <% projects.forEach(element => { %>
+                <div class = "ele">
+                    <i class="fa fa-trash" data-doc=<%= element._id%>></i>
+                    <i class="fa fa-pencil" data-doc=<%= element._id+col+element.title+col+element.address+col+element.team+col+element.description %>></i>
+                    <p>Title: <%= element.title %></p>
+                    <p>Project Link: <a href = <%= element.address %>><%= element.address %></a> </p>
+                    <p>Team: <%= element.team %></p>
+                    <p>Description: <%= element.description %></p>
+                </div>
+            <% }) %>
+        </div>
+    <% } else {%>
+        <h2 class = "noproject">No projects to showcase</h2>
+    <% } %>
+   
+</body>
+
+</html>

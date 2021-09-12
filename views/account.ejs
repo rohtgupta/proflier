@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel = "stylesheet" type="text/css" href ="/home.css">
+    <link rel = "stylesheet" type="text/css" href ="/web_project.css">
+    <script src = "web_account.js" async></script>
+</head>
+<body>
+    <header>
+        <a href = '/login' >Welcome!</a>
+        <a href = '/settings'>Settings</a>
+    </header>
+    <div class = "home-nav">
+        <div class = "pro-img"></div>
+        <h3><%= user.name%></h3>
+
+        <div class ="nav-option">
+            <a href="/logout">Logout</a>
+            <a href = "/account">Account</a>
+            <a href = "/projects">Projects</a>
+        </div>
+    </div>
+
+    <label>Personal Details: </label>
+   
+    <p>Name: <%= user.name %></p>
+    <p>email: <%= user.email %></p>
+    <% d = user.dob.split(" ") %>
+    <% dob = d[1]+" " + d[2]+ " "+d[3] %>
+    <p>DOB: <%= dob %></p>
+    <label>Account View: </label>
+    <a href = "/external/<%= user.id %>">/external/<%= user.id %></a>
+    
+
+    <div class = "add-btn">
+        <input type="button" class = "qual" name = "add-acad" value = "Add Qualification">
+        <div class="add-project">
+            <h2 class = 'close-btn' >&times;</h2>
+            <form class = "project-form qual-form">
+                <label for="inst">Institute Name: </label>
+                <input type="text" name = "inst" required>
+                <label for="uni">University: </label>
+                <input type="text" name = "uni" required>
+                <label for="deg">Qualifying Degree: </label>
+                <input type="text" name = "deg" required>
+                <label for="grade">CPI(out of 10)/Percentage: </label>
+                <input type="number" step = 0.01 name = "grade" required>
+                
+                <input type="submit" name = "button" class ="save-btn" value="Save">
+            </form>
+        </div>
+    </div>
+    <% col = ":", q= "qual"%>
+    <div class= "section">
+        <% if (info.length > 0) {%>
+            <div class = "project-group">
+                <% info.forEach(element => { %>
+                    <div class = "ele">
+                        <i class="fa fa-trash" data-doc=<%= element._id+col+q%>></i>
+                        <p>Intitute Name: <%= element.instituteName %></p>
+                        <p>University: <%= element.university %> </p>
+                        <p>Qualifying Degree: <%= element.degName %></p>
+                        <p>CPI/Percentage: <%= element.grade %></p>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+    <br><br><br>
+    <div class = "add-btn">
+        <input type="button" class = "exp" name = "add-exp" value = "Add Expreience">
+        <div class="add-project">
+            <h2 class = 'close-btn' >&times;</h2>
+            <form class = "project-form exp-form">
+                <label>Organisation: </label>
+                <input type="text" name = "organisation" required>
+                <label>Role: </label>
+                <input type="text" name = "role"  required>
+                <label>WorkSpan:</label>
+                <input type="number" name = "span" placeholder = "WorkSpan in Years"required>
+                <label>Role Description:</label>
+                <textarea name = "description" rows="10" cols="10" placeholder="Minimum 100 words" required></textarea>
+                <input type="submit" name = "button" class ="save-btn" value="Save">
+            </form>
+        </div>
+    </div>
+
+    
+    <div class="section">
+        <% if (exp.length > 0) {%>
+            <div class = "project-group">
+                <% exp.forEach(element => { %>
+                    <div class = "ele">
+                        <i class="fa fa-trash" data-doc=<%= element._id%>></i>
+                        <p>Organisation: <%= element.organisation %></p>
+                        <p>Role: <%= element.role %> </p>
+                        <p>Span: <%= element.span %> Years</p>
+                        <p>Description: <%= element.description %></p>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+    
+
+</body>
+</html>

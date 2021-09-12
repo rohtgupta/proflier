@@ -1,0 +1,162 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.add-btn{
+    position: relative;
+    left: 20px;
+    margin: 10px 0 5px 0;
+}
+
+.searchbox{
+    display: inline;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 50px;
+    width: 400px;
+}
+
+.searchbox input{
+    height: 40px;
+    border-radius: 5px;
+    border: solid green 4px;
+}
+
+#search{
+    width: 300px;
+}
+
+#searchsubmit:active{
+    background-color: green;
+}
+
+.add-btn input{
+    background-color:green;
+    border-radius: 10%;
+    padding: 7px;
+    font-size: 17px;
+    font-weight: 700;
+    color: whitesmoke;
+}
+.add-project{
+    display: none;
+    height: 600px;
+    width: 600px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid burlywood;
+    background-color: cornsilk;
+    border-radius: 10%;
+    z-index: 5;
+}
+
+.project-form{
+    position: absolute;
+    top:30px;
+    left:3%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    margin: 0;
+}
+
+.close-btn{
+    position: absolute;
+    top:10px;
+    right: 4%;
+    color: maroon;
+    margin: 0px;
+    padding: 2px;
+    cursor: pointer;
+    height: 30px;
+}
+
+.project-form input{
+    padding-top: 10px;
+    font-size: 17px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+    color: black;
+}
+.project-form label{
+    padding-top: 15px;
+}
+.project-form textarea{
+    font-size: 17px;
+    padding-top: 10px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+    resize: none;
+}
+
+.project-form .save-btn{
+    border: 2px solid green;
+    background-color: green;
+    border-radius: 20%;
+    position: relative;
+    left: 33%;
+    margin: 7% 1% 0 0;
+    width: 30%;
+    padding: 2%;
+    color: whitesmoke;
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 2px 2px black;
+    cursor: pointer;
+} 
+
+.project-form .save-btn:active{
+    box-shadow: none;
+    cursor: pointer;
+    transform: translate(2px, 2px);
+}
+
+.project-group{
+    position: relative;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: max-content;
+    grid-column-gap: 10px;
+    grid-row-gap: 50px;
+    height: fit-content;
+    margin-bottom: 5%;
+    width: 60%;
+    top: 10px;
+    left: 20%;
+}
+
+.ele{
+    position: relative;
+    margin: 0;
+    padding: 3%;
+    height: fit-content;
+    word-wrap: break-word;
+    border: 2px solid rgb(66, 66, 141);
+    border-radius: 10%;
+}
+
+.ele i{
+    position: relative;
+    float: right;
+    padding: 5px;
+}
+
+.ele i:hover{
+    background-color: rgb(189, 183, 183);
+    box-shadow: 2px 2px black; 
+}
+
+.ele i:active{
+    box-shadow: none;
+}
+
+section{
+    height: fit-content ;
+}

@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <title>Document</title>
+
+    <link rel = "stylesheet" type="text/css" href ="/search.css">
+    <script src = "web_project.js" async></script>
+</head>
+<body>
+
+    <form  class="searchbox" action= '/searchuser' method="GET">
+        <input type= "text" id="search" name='name' placeholder="Enter Name to search" value = <%= searchName %> required>
+        <input type="submit" id="searchsubmit" value="Search">
+    </form>
+
+    <div class="wrapper">
+        <% if (result.length > 0) {%>
+            <div class = "user-group">
+                <% result.forEach(element => { %>
+                    <div class = "ele" onclick="location.href = `/external/<%= element._id %>`">
+                        <h3><%= element.name %></h3>
+                        <p>email: <%= element.email %></p>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else {%>
+            <h2 class = "noproject">No Users Found</h2>
+        <% } %>
+    </div>
+    
+</body>
+</html>
