@@ -1,5 +1,5 @@
 ### Profiler
-```
+
 Profiler is a web app where a person can register and create a carrier portfolio.
 It gives options to add project details, qualification and past experiences, 
 User gets a account view link which they can which they can share and to showcase 
